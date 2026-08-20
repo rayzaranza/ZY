@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 CMakeUserPresets.json
+vckpg_installed/
