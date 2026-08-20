@@ -2,7 +2,7 @@
 
 int main(int argc, char* argv[])
 {
-	Window window{ 1920, 1080 };
+	ZY::Window window{ 1920, 1080 };
 
 	while (window.isOpen())
 	{

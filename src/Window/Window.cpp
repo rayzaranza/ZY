@@ -5,7 +5,8 @@
 // TODO: move glad to renderer class
 #include <glad/glad.h>
 
-Window::Window(unsigned int width, unsigned int height) :
+
+ZY::Window::Window(unsigned int width, unsigned int height) :
 	width{ width },
 	height{ height }
 {
@@ -13,35 +14,35 @@ Window::Window(unsigned int width, unsigned int height) :
 	create();
 }
 
-Window::~Window()
+ZY::Window::~Window()
 {
 	glfwDestroyWindow(id);
 	glfwTerminate();
 }
 
-bool Window::isOpen() const
+bool ZY::Window::isOpen() const
 {
 	return !glfwWindowShouldClose(id);
 }
 
-void Window::processEvents() const
+void ZY::Window::processEvents() const
 {
 	glfwPollEvents();
 }
 
-void Window::update() const
+void ZY::Window::update() const
 {
 	glfwSwapBuffers(id);
 	glfwSwapInterval(1);
 }
 
-void Window::clear() const
+void ZY::Window::clear() const
 {
 	glClearColor(1.0f, 0.2f, 0.2f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Window::initializeGLFW() const
+void ZY::Window::initializeGLFW() const
 {
 	glfwSetErrorCallback(errorCallback);
 	const int initStatus{ glfwInit() };
@@ -51,7 +52,7 @@ void Window::initializeGLFW() const
 	}
 }
 
-void Window::create()
+void ZY::Window::create()
 {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
@@ -70,12 +71,12 @@ void Window::create()
 	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 }
 
-inline void Window::errorCallback(int error, const char* description)
+inline void ZY::Window::errorCallback(int error, const char* description)
 {
 	std::cerr << "Error: " << description << std::endl;
 }
 
-inline void Window::framebufferSizeCallback(GLFWwindow* window, int width, int height)
+inline void ZY::Window::framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
 }
