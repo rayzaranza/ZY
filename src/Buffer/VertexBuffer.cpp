@@ -1,6 +1,7 @@
 #include "VertexBuffer.h"
 
 ZY::VertexBuffer::VertexBuffer(const VertexBufferData& data, GLenum usage)
+	: stride{ 0 }
 {
 	glGenBuffers(1, &id);
 	bind();
@@ -27,6 +28,6 @@ void ZY::VertexBuffer::calculateStride()
 {
 	for (const VertexAttribute& attribute : attributes)
 	{
-		stride += attribute.count * sizeof(float);
+		stride += (attribute.count * sizeof(float));
 	}
 }

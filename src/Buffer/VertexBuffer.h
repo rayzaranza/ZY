@@ -12,6 +12,10 @@ namespace ZY
 		unsigned int location;
 		unsigned int count;
 		GLenum type;
+
+		VertexAttribute(unsigned int location, unsigned int count, GLenum type = GL_FLOAT)
+			: location{ location }, count{ count }, type{ type } {
+		}
 	};
 
 	using VertexBufferLayout = std::vector<VertexAttribute>;
