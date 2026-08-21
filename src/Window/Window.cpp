@@ -1,9 +1,8 @@
 #include "Window.h"
 #define GLFW_INCLUDE_NONE
+#include "../Renderer/Renderer.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
-// TODO: move glad to renderer class
-#include <glad/glad.h>
 
 
 ZY::Window::Window(unsigned int width, unsigned int height) :
@@ -36,12 +35,6 @@ void ZY::Window::update() const
 	glfwSwapInterval(1);
 }
 
-void ZY::Window::clear() const
-{
-	glClearColor(1.0f, 0.2f, 0.2f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-}
-
 void ZY::Window::initializeGLFW() const
 {
 	glfwSetErrorCallback(errorCallback);
@@ -66,9 +59,9 @@ void ZY::Window::create()
 	}
 
 	glfwMakeContextCurrent(id);
-
 	glfwSetFramebufferSizeCallback(id, framebufferSizeCallback);
-	gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+
+	ZY::Renderer::loadAPI((GLADloadproc)glfwGetProcAddress);
 }
 
 inline void ZY::Window::errorCallback(int error, const char* description)
@@ -78,5 +71,5 @@ inline void ZY::Window::errorCallback(int error, const char* description)
 
 inline void ZY::Window::framebufferSizeCallback(GLFWwindow* window, int width, int height)
 {
-	glViewport(0, 0, width, height);
+	ZY::Renderer::setViewport(width, height);
 }

@@ -17,10 +17,8 @@ namespace ZY
 
 	public:
 		bool isOpen() const;
-
 		void update() const;
-		// TODO: move to renderer 
-		void clear() const;
+
 		// TODO: decouple events from windows
 		void processEvents() const;
 

@@ -1,0 +1,42 @@
+#pragma once
+#include <glad/glad.h>
+#include <vector>
+
+namespace ZY
+{
+	// TODO: accept other data types
+	using VertexBufferData = std::vector<float>;
+
+	struct VertexAttribute
+	{
+		unsigned int location;
+		unsigned int count;
+		GLenum type;
+
+		VertexAttribute(unsigned int location, unsigned int count, GLenum type = GL_FLOAT)
+			: location{ location }, count{ count }, type{ type } {
+		}
+	};
+
+	using VertexBufferLayout = std::vector<VertexAttribute>;
+
+	class VertexBuffer
+	{
+	private:
+		unsigned int id;
+
+	public:
+		unsigned int stride;
+		VertexBufferLayout attributes;
+
+	public:
+		VertexBuffer(const VertexBufferData& data, GLenum usage = GL_STATIC_DRAW);
+		~VertexBuffer();
+
+		inline void bind() const;
+		void setAttributes(const VertexBufferLayout& attributes);
+
+	private:
+		void calculateStride();
+	};
+}
