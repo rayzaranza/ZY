@@ -1,3 +1,7 @@
 #pragma once
-#include "Renderer/Renderer.h"
 #include "Window/Window.h"
+
+#include "Buffer/IndexBuffer.h"
+#include "Buffer/VertexArray.h"
+#include "Buffer/VertexBuffer.h"
+#include "Renderer/Renderer.h"

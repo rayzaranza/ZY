@@ -17,6 +17,12 @@ add_executable (ZY
 	"src/Window/Window.cpp"
 	"src/Renderer/Renderer.h"
 	"src/Renderer/Renderer.cpp"
+	"src/Buffer/VertexBuffer.h"
+	"src/Buffer/VertexBuffer.cpp"
+	"src/Buffer/IndexBuffer.cpp"
+	"src/Buffer/IndexBuffer.cpp"
+	"src/Buffer/VertexArray.h"
+	"src/Buffer/VertexArray.cpp"
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

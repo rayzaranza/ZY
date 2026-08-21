@@ -1,0 +1,19 @@
+#include "IndexBuffer.h"
+
+ZY::IndexBuffer::IndexBuffer(const IndexBufferData& data, GLenum usage)
+	: count{ static_cast<unsigned int>(data.size()) }
+{
+	glGenBuffers(1, &id);
+	bind();
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, data.size() * sizeof(unsigned int), data.data(), usage);
+}
+
+ZY::IndexBuffer::~IndexBuffer()
+{
+	glDeleteBuffers(1, &id);
+}
+
+void ZY::IndexBuffer::bind() const
+{
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);
+}
