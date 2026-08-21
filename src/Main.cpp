@@ -9,9 +9,8 @@ int main(int argc, char* argv[])
 		 0.5f, -0.5f,
 		 0.0f,  0.5f
 	} };
-
+	vertexBuffer.setAttributes({ ZY::VertexAttribute{ 0, 2, GL_FLOAT } });
 	ZY::IndexBuffer indexBuffer{ { 0, 1, 2 } };
-
 	ZY::VertexArray vertexArray;
 	vertexArray.addBuffer(vertexBuffer, indexBuffer);
 
