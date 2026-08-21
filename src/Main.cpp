@@ -1,4 +1,4 @@
-#include "Window/Window.h"
+#include "Main.h"
 
 int main(int argc, char* argv[])
 {
@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 	while (window.isOpen())
 	{
 		window.processEvents();
-		window.clear();
+		ZY::Renderer::clear();
 		window.update();
 	}
 }
