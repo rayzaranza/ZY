@@ -5,6 +5,6 @@
 #include "Buffer/VertexArray.h"
 #include "Buffer/VertexBuffer.h"
 
+#include "Camera/Camera.h"
 #include "Renderer/Renderer.h"
-
 #include "Shader/Shader.h"
