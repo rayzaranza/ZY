@@ -27,6 +27,8 @@ add_executable (ZY
 	"src/Shader/Shader.cpp"
 	"src/Asset/Asset.h"
 	"src/Asset/Asset.cpp"
+	"src/Camera/Camera.h"
+	"src/Camera/Camera.cpp"
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
