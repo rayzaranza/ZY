@@ -3,9 +3,9 @@
 
 
 ZY::VertexArray::VertexArray()
+	: indicesCount{ 0 }
 {
 	glGenVertexArrays(1, &id);
-	bind();
 }
 
 ZY::VertexArray::~VertexArray()
@@ -26,10 +26,12 @@ void ZY::VertexArray::addBuffer(const VertexBuffer& buffer, const IndexBuffer& i
 	indexBuffer.bind();
 	indicesCount = indexBuffer.count;
 
-	for (const VertexAttribute& attribute : buffer.attributes)
+	for (unsigned int i{ 0 }; i < buffer.attributes.size(); ++i)
 	{
-		const void* offset{ (const void*)(sizeof(float) * attribute.count * attribute.location) };
-		glEnableVertexAttribArray(attribute.location);
-		glVertexAttribPointer(attribute.location, attribute.count, attribute.type, GL_FALSE, buffer.stride, offset);
+		const VertexAttribute& attribute = buffer.attributes[i];
+		const unsigned int location{ i };
+		const void* offset{ (const void*)(sizeof(float) * attribute.count * location) };
+		glEnableVertexAttribArray(location);
+		glVertexAttribPointer(location, attribute.count, attribute.type, GL_FALSE, buffer.stride, offset);
 	}
 }
