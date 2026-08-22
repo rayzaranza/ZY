@@ -23,6 +23,10 @@ add_executable (ZY
 	"src/Buffer/IndexBuffer.cpp"
 	"src/Buffer/VertexArray.h"
 	"src/Buffer/VertexArray.cpp"
+	"src/Shader/Shader.h"
+	"src/Shader/Shader.cpp"
+	"src/Asset/Asset.h"
+	"src/Asset/Asset.cpp"
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
