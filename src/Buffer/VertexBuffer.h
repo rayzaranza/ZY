@@ -5,16 +5,16 @@
 namespace ZY
 {
 	// TODO: accept other data types
+	// should i create a global vertex struct?
 	using VertexBufferData = std::vector<float>;
 
 	struct VertexAttribute
 	{
-		unsigned int location;
 		unsigned int count;
 		GLenum type;
 
-		VertexAttribute(unsigned int location, unsigned int count, GLenum type = GL_FLOAT)
-			: location{ location }, count{ count }, type{ type } {
+		VertexAttribute(unsigned int count, GLenum type = GL_FLOAT)
+			: count{ count }, type{ type } {
 		}
 	};
 

@@ -12,12 +12,13 @@ void ZY::Renderer::loadAPI(GLADloadproc addressCallback)
 
 void ZY::Renderer::clear()
 {
-	glClearColor(1.0f, 0.2f, 0.2f, 1.0f);
+	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void ZY::Renderer::draw(const VertexArray& vertexArray)
+void ZY::Renderer::draw(const VertexArray& vertexArray, const Shader& shader)
 {
+	shader.bind();
 	vertexArray.bind();
 	glDrawElements(GL_TRIANGLES, vertexArray.indicesCount, GL_UNSIGNED_INT, nullptr);
 }

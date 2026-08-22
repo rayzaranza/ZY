@@ -4,4 +4,7 @@
 #include "Buffer/IndexBuffer.h"
 #include "Buffer/VertexArray.h"
 #include "Buffer/VertexBuffer.h"
+
 #include "Renderer/Renderer.h"
+
+#include "Shader/Shader.h"
